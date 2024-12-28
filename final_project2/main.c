@@ -14,14 +14,14 @@ int borrow_member_ids[100];
 char borrow_dates[100][12];
 
 int book_count = 0, member_count = 0, borrow_count = 0;
-
+//shawaf
 void add_book(int id, int copies) {
     book_ids[book_count] = id;
     book_copies[book_count] = copies;
     book_borrowed_counts[book_count] = 0;
     book_count++;
 }
-
+//shawaf
 void add_member(int id) {
     member_ids[member_count] = id;
     member_borrowed_counts[member_count] = 0;
@@ -48,15 +48,15 @@ void add_borrow(int book_id, int member_id, const char *date) {
         }
     }
 }
-
+//shawaf
 void number_books() {
     printf("%d\n", book_count);
 }
-
+//shawaf
 void number_members() {
     printf("%d\n", member_count);
 }
-
+//ayman
 void book_id_min() {
     if (book_count == 0) {
         printf("none\n");
@@ -73,7 +73,7 @@ void book_id_min() {
 
     printf("%d\n", min_id);
 }
-
+//ayman
 void books_available() {
     int found = 0;
     for (int i = 0; i < book_count; i++) {
@@ -82,9 +82,9 @@ void books_available() {
             found = 1;
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
-
+//ayman
 void list_book_borrowers(int book_id) {
     int found = 0;
     for (int i = 0; i < borrow_count; i++) {
@@ -95,7 +95,7 @@ void list_book_borrowers(int book_id) {
     }
     if (!found) printf("none\n");
 }
-
+//youssef
 void list_member_books(int member_id) {
     int found = 0;
     for (int i = 0; i < borrow_count; i++) {
@@ -104,9 +104,9 @@ void list_member_books(int member_id) {
             found = 1;
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
-
+//kiro
 void most_borrowed() {
     if (book_count == 0) {
         printf("none\n");
@@ -131,7 +131,7 @@ void most_borrowed() {
         }
     }
 }
-
+//youssef
 void members_less(int n) {
     int found = 0;
     for (int i = 0; i < member_count; i++) {
@@ -140,7 +140,7 @@ void members_less(int n) {
             found = 1;
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
 
 void books_unborrowed() {
@@ -153,7 +153,7 @@ void books_unborrowed() {
     }
     if (!found) printf("none\n");
 }
-
+//sameer
 void books_borrowed_days() {
     int unique_days = 0;
     for (int i = 0; i < borrow_count; i++) {
@@ -168,13 +168,13 @@ void books_borrowed_days() {
     }
     printf("%d\n", unique_days);
 }
-
+//youssef
 void books_per_member() {
     for (int i = 0; i < member_count; i++) {
         printf("%d %d\n", member_ids[i], member_borrowed_counts[i]);
     }
 }
-
+//sameer
 void overlapping_borrowers(int book_id) {
     int found = 0;
     for (int i = 0; i < borrow_count; i++) {
@@ -191,6 +191,7 @@ void overlapping_borrowers(int book_id) {
 }
 
 int main() {
+
     char input[100];
 
 
