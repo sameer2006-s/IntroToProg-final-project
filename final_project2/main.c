@@ -93,7 +93,7 @@ void list_book_borrowers(int book_id) {
             found = 1;
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
 //youssef
 void list_member_books(int member_id) {
@@ -151,7 +151,7 @@ void books_unborrowed() {
             found = 1;
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
 //sameer
 void books_borrowed_days() {
@@ -187,7 +187,7 @@ void overlapping_borrowers(int book_id) {
             }
         }
     }
-    if (!found) printf("none\n");
+    if (found==0) printf("none\n");
 }
 
 int main() {
@@ -195,7 +195,6 @@ int main() {
     char input[100];
 
 
-    //fgets(input, sizeof(input), stdin);
     gets(input);
 
 
