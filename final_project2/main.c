@@ -16,6 +16,10 @@ char borrow_dates[100][12];
 int book_count = 0, member_count = 0, borrow_count = 0;
 //shawaf
 void add_book(int id, int copies) {
+     if (book_count >= 50) {
+        printf("Error: Maximum book limit of 50 reached.\n");
+        return;
+    }
     book_ids[book_count] = id;
     book_copies[book_count] = copies;
     book_borrowed_counts[book_count] = 0;
@@ -23,30 +27,55 @@ void add_book(int id, int copies) {
 }
 //shawaf
 void add_member(int id) {
+    if (member_count >= 30) {
+        printf("Error: Maximum member limit of 30 reached.\n");
+        return;
+    }
     member_ids[member_count] = id;
     member_borrowed_counts[member_count] = 0;
     member_count++;
 }
 //omar
 void add_borrow(int book_id, int member_id, const char *date) {
-    borrow_book_ids[borrow_count] = book_id;
-    borrow_member_ids[borrow_count] = member_id;
-    strcpy(borrow_dates[borrow_count], date);
-    borrow_count++;
+
+    int book_idx = -1, member_idx = -1;
 
     for (int i = 0; i < book_count; i++) {
         if (book_ids[i] == book_id) {
-            book_borrowed_counts[i]++;
+            book_idx = i;
             break;
         }
     }
 
     for (int i = 0; i < member_count; i++) {
         if (member_ids[i] == member_id) {
-            member_borrowed_counts[i]++;
+            member_idx = i;
             break;
         }
     }
+
+    if (book_idx == -1 || member_idx == -1) {
+        printf("Error: Invalid book ID or member ID.\n");
+        return;
+    }
+
+    if (book_borrowed_counts[book_idx] >= book_copies[book_idx]) {
+        printf("Error: No copies available for book ID %d.\n", book_id);
+        return;
+    }
+
+    if (member_borrowed_counts[member_idx] >= 5) {
+        printf("Error: Member ID %d has already borrowed 5 books.\n", member_id);
+        return;
+    }
+
+    borrow_book_ids[borrow_count] = book_id;
+    borrow_member_ids[borrow_count] = member_id;
+    strcpy(borrow_dates[borrow_count], date);
+    borrow_count++;
+
+    book_borrowed_counts[book_idx]++;
+    member_borrowed_counts[member_idx]++;
 }
 //shawaf
 void number_books() {
