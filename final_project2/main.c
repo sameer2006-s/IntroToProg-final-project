@@ -27,7 +27,7 @@ void add_member(int id) {
     member_borrowed_counts[member_count] = 0;
     member_count++;
 }
-
+//omar
 void add_borrow(int book_id, int member_id, const char *date) {
     borrow_book_ids[borrow_count] = book_id;
     borrow_member_ids[borrow_count] = member_id;
@@ -142,7 +142,7 @@ void members_less(int n) {
     }
     if (found==0) printf("none\n");
 }
-
+//kareem
 void books_unborrowed() {
     int found = 0;
     for (int i = 0; i < book_count; i++) {
@@ -191,36 +191,36 @@ void overlapping_borrowers(int book_id) {
 }
 
 int main() {
-
+ //kareem & omar
     char input[100];
 
 
-    fgets(input, sizeof(input), stdin);
+    //fgets(input, sizeof(input), stdin);
+    gets(input);
 
 
-    if (strcmp(input, "Books:\n") != 0) {
+    if (strcmp(input, "Books:") != 0) {
         printf("Error: Input must start with 'Books:'\n");
         return 1;
     }
 
 
-    while (fgets(input, sizeof(input), stdin)) {
-        if (strcmp(input, "Members:\n") == 0) break;
+    while (gets(input) ){
+        if (strcmp(input, "Members:") == 0){break;};
         int id, copies;
         sscanf(input, "%d %d", &id, &copies);
         add_book(id, copies);
     }
 
 
-    while (fgets(input, sizeof(input), stdin)) {
-        if (strcmp(input, "Borrowed_Books:\n") == 0) break;
-        int id;
-        sscanf(input, "%d", &id);
+    while (gets(input)) {
+        if (strcmp(input, "Borrowed_Books:") == 0) break;
+        int id=atoi(input);
         add_member(id);
     }
 
 
-    while (fgets(input, sizeof(input), stdin)) {
+    while (gets(input)) {
         if (input[0] == '^') break;
         int book_id, member_id;
         char date[12];
@@ -228,10 +228,10 @@ int main() {
         add_borrow(book_id, member_id, date);
     }
 
+ //sameer
+    while (gets(input)) {
 
-    while (fgets(input, sizeof(input), stdin)) {
-        if (strcmp(input, "Quit\n") == 0) break;
-        input[strcspn(input, "\n")] = 0; // to remove newline from command
+        if (strcmp(input, "Quit") == 0) break;
 
         if (strcmp(input, "Number_Books") == 0) {
             number_books();
