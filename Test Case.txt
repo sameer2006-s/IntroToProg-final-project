@@ -1,0 +1,52 @@
+Books:
+222 5
+102 3
+324 7
+501 2
+502 0
+103 5
+104 3
+105 7
+106 0
+107 1
+Members:
+205000
+206000
+201000
+202000
+203000
+204000
+207000
+208000
+209000
+Borrowed_Books:
+222 201000 01/11/2024
+222 205000 03/11/2024
+222 206000 02/11/2024
+102 205000 02/11/2024
+324 205000 05/11/2024
+501 205000 03/12/2024
+222 204000 01/12/2024
+105 203000 03/03/2024
+105 204000 03/03/2024
+105 207000 03/03/2024
+105 208000 03/03/2024
+105 201000 03/03/2024
+^Z
+
+Number_Books
+Number_Members
+Book_ID_Min
+Books_Available
+List_Book_Borrowers 222
+List_Member_Books 205000
+Most_Borrowed
+Members_Less 1
+Members_Less 3
+Books_Unborrowed
+Books_Per_Member
+Overlapping_Borrowers 105
+Overlapping_Borrowers 222
+Books_Borrowed_Days
+Quit
+
